@@ -25,6 +25,13 @@ const LoginPage = () => {
         <h1 className="text-3xl mb-8 font-medium">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
+        {!isSignInForm && (
+          <input
+            type="text"
+            className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md"
+            placeholder="UserName"
+          />
+        )}
         <input
           type="text"
           className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md"
@@ -36,12 +43,12 @@ const LoginPage = () => {
           placeholder="Password"
         />
         <button className="px-4 py-3 bg-red-700 w-full mb-8 rounded-md">
-          Sign In
+          {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="text-[#8c8c8c]">
-          New to Netflix ?
+        <p className="text-[#8c8c8c] mb-12">
+          {isSignInForm ? "New to Netflix ? " : "Already Registered ? "}
           <button className="text-white" onClick={toggleSiginInForm}>
-            Sign Up now
+            {isSignInForm ? "Sign Up now" : "Sign In now"}
           </button>
         </p>
       </form>
