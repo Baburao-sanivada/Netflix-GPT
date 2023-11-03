@@ -4,7 +4,7 @@
 -> Validation
 -> Router Settings
 -> firebase configuration
-
+-> Authentication Done
 Features:
 
 - Login/Signup Page

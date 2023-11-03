@@ -2,6 +2,11 @@ import React, { useRef, useState } from "react";
 import loginpageBgImage from "../utils/Images/loginPageBgImage.jpg";
 import Header from "./Header";
 import { validateEmail, validatePassword } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -29,9 +34,62 @@ const LoginPage = () => {
     console.log(password?.current?.value);
 
     if (!validateEmail(email?.current?.value)) {
-      setErrorMessage("Invalid Email");
+      setErrorMessage("Invalid Email ID");
     } else if (!isSignInForm && !validatePassword(password?.current?.value)) {
-      setErrorMessage("Invalid Password");
+      setErrorMessage(
+        "Invalid Password. Password must contain a special character,Capital letter,Small letter"
+      );
+    } else {
+      // No Errors
+      if (!isSignInForm) {
+        // Signing up
+        createUserWithEmailAndPassword(
+          auth,
+          email?.current?.value,
+          password?.current?.value
+        )
+          .then((userCredential) => {
+            // Signed up
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessagefirebase = error.message;
+            if (
+              errorMessagefirebase ===
+              "Firebase: Error (auth/email-already-in-use)."
+            ) {
+              setErrorMessage("Email is Already Registered");
+            } else {
+              setErrorMessage(errorMessagefirebase);
+            }
+          });
+      } else {
+        // Signing In
+        signInWithEmailAndPassword(
+          auth,
+          email?.current?.value,
+          password?.current?.value
+        )
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessagefirebase = error.message;
+            if (
+              errorMessagefirebase ===
+              "Firebase: Error (auth/invalid-login-credentials)."
+            ) {
+              setErrorMessage("Invalid Login Credentials");
+            } else {
+              setErrorMessage(errorMessagefirebase);
+            }
+          });
+      }
     }
   };
   return (
