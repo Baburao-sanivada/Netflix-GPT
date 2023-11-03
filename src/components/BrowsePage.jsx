@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Header from "./Header";
 
 const BrowsePage = () => {
   return (
-    <div>BrowsePage</div>
-  )
-}
+    <div className="">
+      <Header />
+    </div>
+  );
+};
 
-export default BrowsePage
+export default BrowsePage;

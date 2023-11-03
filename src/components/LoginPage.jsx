@@ -1,16 +1,21 @@
 import React, { useRef, useState } from "react";
 import loginpageBgImage from "../utils/Images/loginPageBgImage.jpg";
-import Header from "./Header";
 import { validateEmail, validatePassword } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import netflixLogo from "../utils/Images/Netflix_Logo.png";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // Data In input fields Accessed using useRef Hook
   const email = useRef(null);
   const password = useRef(null);
@@ -50,8 +55,19 @@ const LoginPage = () => {
         )
           .then((userCredential) => {
             // Signed up
-            const user = userCredential.user;
-            console.log(user);
+            updateProfile(auth.currentUser, {
+              displayName: username?.current?.value,
+            })
+              .then(() => {
+                const { displayName, uid, email } = auth.currentUser;
+                dispatch(
+                  addUser({ displayName: displayName, uid: uid, email: email })
+                );
+                navigate("/browse");
+              })
+              .catch((error) => {
+                setErrorMessage("error");
+              });
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -74,8 +90,11 @@ const LoginPage = () => {
         )
           .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
-            console.log(user);
+            const { displayName, uid, email } = auth.currentUser;
+            dispatch(
+              addUser({ displayName: displayName, uid: uid, email: email })
+            );
+            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -92,10 +111,13 @@ const LoginPage = () => {
       }
     }
   };
+
   return (
     <div>
       {/* Logo */}
-      <Header />
+      <div className="absolute w-44 bg-gradient-to-b from-black z-20">
+        <img src={netflixLogo} alt="NetflixLogo" />
+      </div>
 
       {/* Backgorund Image */}
       <div className="absolute">
