@@ -9,6 +9,8 @@
 -> SignOut API Used
 -> Restricted Browse only after Login
 -> unsubscribed to OnAuthChange
+-> Registered for TMDB
+-> Created Project and Made first API Call
 
 Features:
 

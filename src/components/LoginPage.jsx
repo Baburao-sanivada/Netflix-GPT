@@ -140,7 +140,7 @@ const LoginPage = () => {
 
       {/* Backgorund Image */}
       <div className="absolute">
-        <img src={loginpageBgImage}></img>
+        <img src={loginpageBgImage} alt="BackGorund Image"></img>
       </div>
 
       {/* Sign Up/Sign In Form */}

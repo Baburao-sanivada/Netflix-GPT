@@ -1,11 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import BrowsePage from "./BrowsePage";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import { useDispatch } from "react-redux";
-import { removeUser } from "../utils/userSlice";
 
 const router = createBrowserRouter([
   {

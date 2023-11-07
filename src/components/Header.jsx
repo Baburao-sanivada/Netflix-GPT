@@ -43,7 +43,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-normal bg-black">
+    <div className="flex justify-evenly bg-black">
       <img src={netflixLogo} alt="NetflixLogo" className="w-44" />
       <button onClick={signoutHandler} className="text-white">
         SignOut
