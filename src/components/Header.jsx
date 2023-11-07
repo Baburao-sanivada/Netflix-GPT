@@ -13,7 +13,7 @@ const Header = () => {
 
   useEffect(() => {
     // Auth Listener should be called only once so placed in useEffect.
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // SignIn / SignUp
         const uid = user.uid;
@@ -24,6 +24,9 @@ const Header = () => {
         navigate("/");
       }
     });
+
+    // Callback Function is Called When Component unMounts
+    return unsubscribe;
   }, []);
 
   const signoutHandler = () => {
@@ -40,9 +43,11 @@ const Header = () => {
   };
 
   return (
-    <div className="w-44 bg-gradient-to-b from-black z-20 flex justify-center">
-      <img src={netflixLogo} alt="NetflixLogo" />
-      <button onClick={signoutHandler}>SignOut</button>
+    <div className="flex justify-normal bg-black">
+      <img src={netflixLogo} alt="NetflixLogo" className="w-44" />
+      <button onClick={signoutHandler} className="text-white">
+        SignOut
+      </button>
     </div>
   );
 };

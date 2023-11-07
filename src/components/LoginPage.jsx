@@ -1,17 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import loginpageBgImage from "../utils/Images/loginPageBgImage.jpg";
 import { validateEmail, validatePassword } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import netflixLogo from "../utils/Images/Netflix_Logo.png";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -113,10 +113,30 @@ const LoginPage = () => {
     }
   };
 
+  useEffect(() => {
+    // Auth Listener should be called only once so placed in useEffect.
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // SignIn / SignUp
+        const uid = user.uid;
+        navigate("/browse");
+      } else {
+        // SignOut
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+
+    // Callback Function is Called When Component unMounts
+    return unsubscribe;
+  }, []);
+
   return (
     <div>
       {/* Logo */}
-      <Header />
+      <div className="absolute w-44 bg-gradient-to-b from-black z-20">
+        <img src={netflixLogo} alt="NetflixLogo" />
+      </div>
 
       {/* Backgorund Image */}
       <div className="absolute">
