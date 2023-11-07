@@ -19,20 +19,6 @@ const router = createBrowserRouter([
 ]);
 
 const Body = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // Auth Listener should be called only once so placed in useEffect.
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // SignIn / SignUp
-        const uid = user.uid;
-      } else {
-        // SignOut
-        dispatch(removeUser());
-      }
-    });
-  }, []);
-
   return (
     <div>
       <RouterProvider router={router} />

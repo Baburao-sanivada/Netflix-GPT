@@ -11,6 +11,7 @@ import netflixLogo from "../utils/Images/Netflix_Logo.png";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -115,9 +116,7 @@ const LoginPage = () => {
   return (
     <div>
       {/* Logo */}
-      <div className="absolute w-44 bg-gradient-to-b from-black z-20">
-        <img src={netflixLogo} alt="NetflixLogo" />
-      </div>
+      <Header />
 
       {/* Backgorund Image */}
       <div className="absolute">
