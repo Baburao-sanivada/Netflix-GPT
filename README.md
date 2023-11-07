@@ -5,6 +5,11 @@
 -> Router Settings
 -> firebase configuration
 -> Authentication Done
+-> Name Update Done
+-> SignOut API Used
+-> Restricted Browse only after Login
+-> unsubscribed to OnAuthChange
+
 Features:
 
 - Login/Signup Page
