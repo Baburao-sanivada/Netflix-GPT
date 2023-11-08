@@ -2,7 +2,7 @@ import React from "react";
 import { img_cdn_url } from "../utils/constants";
 
 export const MovieCard = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="">
       <img
