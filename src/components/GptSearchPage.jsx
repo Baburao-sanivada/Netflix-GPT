@@ -1,7 +1,7 @@
 import React from "react";
 
-const GptSearch = () => {
+const GptSearchPage = () => {
   return <div>GptSearch</div>;
 };
 
-export default GptSearch;
+export default GptSearchPage;

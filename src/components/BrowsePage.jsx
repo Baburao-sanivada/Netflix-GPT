@@ -6,8 +6,8 @@ import SecondaryContainer from "./SecondaryContainer";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
-import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
+import GptSearchPage from "./GptSearchPage";
 
 // Should be allowed to browse page on when Login/signUp is Successful
 const BrowsePage = () => {
@@ -22,7 +22,7 @@ const BrowsePage = () => {
     <div className="">
       <Header />
       {showGptSearch ? (
-        <GptSearch />
+        <GptSearchPage />
       ) : (
         <>
           <MainContainer />
