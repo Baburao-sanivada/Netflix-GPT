@@ -60,7 +60,7 @@ const Header = () => {
       <img src={netflixLogo} alt="NetflixLogo" className="w-44" />
       {showGptSearch && (
         <select
-          className="m-4 p-2 bg-gray-900 text-white"
+          className="m-4 p-2 bg-gray-900 text-white rounded-lg"
           onChange={handleLanguageChange}
         >
           {Supported_Languages.map((lang) => (

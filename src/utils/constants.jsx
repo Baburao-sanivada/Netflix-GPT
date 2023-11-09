@@ -9,6 +9,9 @@ export const API_Options = {
 
 export const img_cdn_url = "https://image.tmdb.org/t/p/w500/";
 
+export const Open_API_Key =
+  "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";
+
 export const Supported_Languages = [
   {
     name: "English",
