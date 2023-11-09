@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../utils/userSlice";
 import { togglegpt } from "../utils/gptSlice";
+import { Supported_Languages } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -47,9 +48,20 @@ const Header = () => {
     dispatch(togglegpt());
   };
 
+  const handleLanguageChange = () => {};
   return (
     <div className="absolute z-50 flex bg-gradient-to-b from-black">
       <img src={netflixLogo} alt="NetflixLogo" className="w-44" />
+      <select
+        className="m-4 p-2 bg-gray-900 text-white"
+        onChange={handleLanguageChange}
+      >
+        {Supported_Languages.map((lang) => (
+          <option key={lang.name} value={lang.value}>
+            {lang.name}
+          </option>
+        ))}
+      </select>
       <button
         className="bg-purple-700 text-white p-2 my-4 mx-4 rounded-lg"
         onClick={handleGptSearchClick}
