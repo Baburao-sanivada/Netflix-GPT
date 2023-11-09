@@ -49,6 +49,7 @@ const Header = () => {
   };
 
   const handleLanguageChange = () => {};
+
   return (
     <div className="absolute z-50 flex bg-gradient-to-b from-black">
       <img src={netflixLogo} alt="NetflixLogo" className="w-44" />
