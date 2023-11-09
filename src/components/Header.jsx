@@ -3,15 +3,18 @@ import netflixLogo from "../utils/Images/Netflix_Logo.png";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utils/userSlice";
 import { togglegpt } from "../utils/gptSlice";
 import { Supported_Languages } from "../utils/constants";
+import { changeLanguage } from "../utils/langSlice";
 
 const Header = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   useEffect(() => {
     // Auth Listener should be called only once so placed in useEffect.
@@ -48,26 +51,30 @@ const Header = () => {
     dispatch(togglegpt());
   };
 
-  const handleLanguageChange = () => {};
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
 
   return (
     <div className="absolute z-50 flex bg-gradient-to-b from-black">
       <img src={netflixLogo} alt="NetflixLogo" className="w-44" />
-      <select
-        className="m-4 p-2 bg-gray-900 text-white"
-        onChange={handleLanguageChange}
-      >
-        {Supported_Languages.map((lang) => (
-          <option key={lang.name} value={lang.value}>
-            {lang.name}
-          </option>
-        ))}
-      </select>
+      {showGptSearch && (
+        <select
+          className="m-4 p-2 bg-gray-900 text-white"
+          onChange={handleLanguageChange}
+        >
+          {Supported_Languages.map((lang) => (
+            <option key={lang.name} value={lang.value}>
+              {lang.name}
+            </option>
+          ))}
+        </select>
+      )}
       <button
         className="bg-purple-700 text-white p-2 my-4 mx-4 rounded-lg"
         onClick={handleGptSearchClick}
       >
-        GPT Search
+        {!showGptSearch ? "GPT Search" : "HomePage"}
       </button>
       <button onClick={signoutHandler} className="text-white cursor-pointer">
         SignOut
