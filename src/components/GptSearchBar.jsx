@@ -2,14 +2,27 @@ import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { lang } from "../utils/langConstants";
 import openai from "../utils/openAI";
+import { API_Options } from "../utils/constants";
 
 const GptSearchBar = () => {
   const lang_selected = useSelector((Store) => Store.language.lang);
   const searchText = useRef();
 
+  const getMovieDetails = async (movieName) => {
+    const fetchData = await fetch(
+      "https://api.themoviedb.org/3/search/movie?query=" +
+        movieName +
+        "&include_adult=false&language=en-US&page=1",
+      API_Options
+    );
+    const jsonData = await fetchData.json();
+
+    return jsonData?.results;
+  };
+
   const gptQuery =
     "Act like a movie Recommendation System and suggest movies name with query :" +
-    searchText.current.value +
+    searchText?.current?.value +
     ". Give only 5 movies names ',' comma seperated as show in the example ahead . Example : MovieName1,MovieName2,MovieName3,MovieName4,MovieName5";
   const handleSearchClick = async () => {
     // const GptResult = await openai.chat.completions.create({
@@ -18,6 +31,13 @@ const GptSearchBar = () => {
     // });
     // console.log(GptResult);
     console.log(searchText.current.value);
+    // ChatGpt api is not working so using Temporary movie list
+    const GptmovieList = ["Salaar", "MAD", "Animal", "Arjun Reddy", "premam"];
+
+    const promiseArray = GptmovieList.map((movie) => getMovieDetails(movie));
+    const gptMovieDetails = await Promise.all(promiseArray);
+
+    console.log(gptMovieDetails);
   };
 
   return (
