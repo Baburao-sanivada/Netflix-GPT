@@ -8,7 +8,7 @@ const GptSearchPage = () => {
     <div>
       {/* Backgorund Image */}
       <div className="fixed -z-10">
-        <img src={loginpageBgImage} alt="BackGorund Image"></img>
+        <img className="" src={loginpageBgImage} alt="BackGorund Image"></img>
       </div>
       <GptSearchBar />
       <GptMovieSuggestions />
