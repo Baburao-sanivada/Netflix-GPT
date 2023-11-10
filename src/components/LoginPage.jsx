@@ -139,7 +139,7 @@ const LoginPage = () => {
       </div>
 
       {/* Backgorund Image */}
-      <div className="absolute">
+      <div className="fixed">
         <img src={loginpageBgImage} alt="BackGorund Image"></img>
       </div>
 

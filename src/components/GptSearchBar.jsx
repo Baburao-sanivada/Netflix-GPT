@@ -45,7 +45,7 @@ const GptSearchBar = () => {
         moviesInfo: gptMovieDetails,
       })
     );
-    console.log(gptMovieDetails);
+    // console.log(gptMovieDetails);
   };
 
   return (

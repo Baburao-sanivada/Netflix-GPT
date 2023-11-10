@@ -3,6 +3,7 @@ import { img_cdn_url } from "../utils/constants";
 
 export const MovieCard = ({ data }) => {
   // console.log(data);
+  if (!data.poster_path) return null;
   return (
     <div className="">
       <img

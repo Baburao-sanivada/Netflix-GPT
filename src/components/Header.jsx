@@ -5,7 +5,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utils/userSlice";
-import { togglegpt } from "../utils/gptSlice";
+import { addGptMoviesData, togglegpt } from "../utils/gptSlice";
 import { Supported_Languages } from "../utils/constants";
 import { changeLanguage } from "../utils/langSlice";
 
@@ -49,6 +49,7 @@ const Header = () => {
 
   const handleGptSearchClick = () => {
     dispatch(togglegpt());
+    dispatch(addGptMoviesData({ movieNames: null, moviesInfo: null }));
   };
 
   const handleLanguageChange = (e) => {

@@ -7,7 +7,7 @@ const GptSearchPage = () => {
   return (
     <div>
       {/* Backgorund Image */}
-      <div className="absolute -z-10">
+      <div className="fixed -z-10">
         <img src={loginpageBgImage} alt="BackGorund Image"></img>
       </div>
       <GptSearchBar />
