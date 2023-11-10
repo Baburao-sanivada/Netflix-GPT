@@ -30,3 +30,11 @@ export const Supported_Languages = [
     value: "spanish",
   },
 ];
+
+export const Header_list = [
+  "Home",
+  "TV Shows",
+  "Movies",
+  "New & Popular",
+  "My List",
+];

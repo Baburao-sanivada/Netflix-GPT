@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utils/userSlice";
 import { addGptMoviesData, togglegpt } from "../utils/gptSlice";
-import { Supported_Languages } from "../utils/constants";
+import { Header_list, Supported_Languages } from "../utils/constants";
 import { changeLanguage } from "../utils/langSlice";
 
 const Header = () => {
@@ -57,29 +57,38 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute z-50 flex bg-gradient-to-b from-black">
-      <img src={netflixLogo} alt="NetflixLogo" className="w-44" />
-      {showGptSearch && (
-        <select
-          className="m-4 p-2 bg-gray-900 text-white rounded-lg"
-          onChange={handleLanguageChange}
+    <div className="fixed flex justify-between bg-[#141414] w-full z-50 px-6 items-center py-1">
+      <div className="flex text-white items-center">
+        <img src={netflixLogo} alt="NetflixLogo" className="w-32  mr-2" />
+        {Header_list.map((item) => (
+          <button key={item} className="m-2 font-medium">
+            {item}
+          </button>
+        ))}
+      </div>
+      <div>
+        {showGptSearch && (
+          <select
+            className="m-4 p-2 bg-gray-900 text-white rounded-lg"
+            onChange={handleLanguageChange}
+          >
+            {Supported_Languages.map((lang) => (
+              <option key={lang.name} value={lang.value}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
+        )}
+        <button
+          className="bg-white text-black mx-4 px-3 py-1 rounded-sm"
+          onClick={handleGptSearchClick}
         >
-          {Supported_Languages.map((lang) => (
-            <option key={lang.name} value={lang.value}>
-              {lang.name}
-            </option>
-          ))}
-        </select>
-      )}
-      <button
-        className="bg-purple-700 text-white p-2 my-4 mx-4 rounded-lg"
-        onClick={handleGptSearchClick}
-      >
-        {!showGptSearch ? "GPT Search" : "HomePage"}
-      </button>
-      <button onClick={signoutHandler} className="text-white cursor-pointer">
-        SignOut
-      </button>
+          {!showGptSearch ? "GPT Search" : "HomePage"}
+        </button>
+        <button onClick={signoutHandler} className="text-white cursor-pointer">
+          SignOut
+        </button>
+      </div>
     </div>
   );
 };

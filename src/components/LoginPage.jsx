@@ -139,13 +139,13 @@ const LoginPage = () => {
       </div>
 
       {/* Backgorund Image */}
-      <div className="fixed ">
+      <div className="relative">
         <img className="" src={loginpageBgImage} alt="BackGorund Image"></img>
       </div>
 
       {/* Sign Up/Sign In Form */}
       <form
-        className="w-10/12 md:w-4/12 absolute bg-black mt-28 mx-auto left-0 right-0 py-12 px-14 text-white bg-opacity-90 rounded-md"
+        className="w-10/12 md:w-4/12 absolute bg-black top-[15%] mx-auto left-0 right-0 py-12 px-14 text-white bg-opacity-90 rounded-md"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="text-3xl mb-8 font-medium">
