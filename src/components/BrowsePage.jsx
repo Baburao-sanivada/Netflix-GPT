@@ -18,6 +18,12 @@ const BrowsePage = () => {
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
+  // const handleScroll = (event) => {
+  //   console.log("Scrolled Down");
+  //   let scrollTop = event.srcElement.body.scrollTop;
+  //   console.log(scrollTop);
+  // };
+
   return (
     <div className="">
       <Header />

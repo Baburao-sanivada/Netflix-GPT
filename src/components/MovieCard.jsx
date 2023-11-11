@@ -5,9 +5,9 @@ export const MovieCard = ({ data }) => {
   // console.log(data);
   if (!data.poster_path) return null;
   return (
-    <div className="">
+    <div>
       <img
-        className="w-32 h-32 "
+        className="min-w-[150px] h-44"
         alt="poster"
         src={img_cdn_url + data.poster_path}
       />
