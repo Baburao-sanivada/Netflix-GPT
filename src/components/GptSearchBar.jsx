@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { lang } from "../utils/langConstants";
 import openai from "../utils/openAI";
 import { API_Options } from "../utils/constants";
-import { addGptMoviesData } from "../utils/gptSlice";
+import { addGptMoviesData, toggleShowSuggestions } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,7 @@ const GptSearchBar = () => {
     searchText?.current?.value +
     ". Give only 5 movies names ',' comma seperated as show in the example ahead . Example : MovieName1,MovieName2,MovieName3,MovieName4,MovieName5";
   const handleSearchClick = async () => {
+    dispatch(toggleShowSuggestions(true));
     // const GptResult = await openai.chat.completions.create({
     //   messages: [{ role: "user", content: "Say this is a test" }],
     //   model: "gpt-3.5-turbo",
