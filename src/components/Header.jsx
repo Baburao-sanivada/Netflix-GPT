@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import netflixLogo from "../utils/Images/Netflix_Logo.png";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utils/userSlice";
-import { addGptMoviesData, togglegpt } from "../utils/gptSlice";
+import { addGptMoviesData, setGpt, togglegpt } from "../utils/gptSlice";
 import { Header_list, Supported_Languages } from "../utils/constants";
 import { changeLanguage } from "../utils/langSlice";
+import profileImage from "../utils/Images/netflixProfile.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -56,20 +57,26 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
 
+  const handleHomeClick = () => {
+    dispatch(setGpt(false));
+  };
+
   return (
     <div className="fixed flex justify-between bg-[#141414] w-full z-50 px-6 items-center py-1">
       <div className="flex text-white items-center">
-        <img src={netflixLogo} alt="NetflixLogo" className="w-32  mr-2" />
+        <button onClick={handleHomeClick}>
+          <img src={netflixLogo} alt="NetflixLogo" className="w-32  mr-2" />
+        </button>
         {Header_list.map((item) => (
           <button key={item} className="m-2 font-medium">
             {item}
           </button>
         ))}
       </div>
-      <div>
+      <div className="flex ">
         {showGptSearch && (
           <select
-            className="m-4 p-2 bg-gray-900 text-white rounded-lg"
+            className=" p-2 bg-gray-900 text-white rounded-lg"
             onChange={handleLanguageChange}
           >
             {Supported_Languages.map((lang) => (
@@ -80,13 +87,17 @@ const Header = () => {
           </select>
         )}
         <button
-          className="bg-white text-black mx-4 px-3 py-1 rounded-sm"
+          className="bg-white text-black mx-4 px-3 py-1 my-1 rounded-sm"
           onClick={handleGptSearchClick}
         >
           {!showGptSearch ? "GPT Search" : "HomePage"}
         </button>
-        <button onClick={signoutHandler} className="text-white cursor-pointer">
-          SignOut
+        <button
+          onClick={signoutHandler}
+          className="text-white cursor-pointer flex items-center"
+        >
+          <img src={profileImage} alt="image" className="rounded-sm" />
+          <span className="mx-2 font-medium">SignOut</span>
         </button>
       </div>
     </div>

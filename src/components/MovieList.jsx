@@ -8,8 +8,8 @@ const MovieList = ({ title, movies }) => {
   // console.log(title + " " + movies);
 
   return (
-    <div className="">
-      <h1 className="text-3xl py-4">{title}</h1>
+    <div className="mb-8">
+      <h1 className="text-2xl pt-4 pb-2 font-medium">{title}</h1>
       <Carousel
         additionalTransfrom={0}
         arrows
@@ -34,7 +34,7 @@ const MovieList = ({ title, movies }) => {
               max: 3000,
               min: 1024,
             },
-            items: 6,
+            items: 7,
             partialVisibilityGutter: 40,
           },
           mobile: {
@@ -60,7 +60,7 @@ const MovieList = ({ title, movies }) => {
         shouldResetAutoplay
         showDots={false}
         sliderClass=""
-        slidesToSlide={1}
+        slidesToSlide={4}
         swipeable
       >
         {movies.map((movie) => (
