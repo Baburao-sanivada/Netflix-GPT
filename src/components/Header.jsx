@@ -67,16 +67,17 @@ const Header = () => {
         <button onClick={handleHomeClick}>
           <img src={netflixLogo} alt="NetflixLogo" className="w-32  mr-2" />
         </button>
-        {Header_list.map((item) => (
-          <button key={item} className="m-2 font-medium">
-            {item}
-          </button>
-        ))}
+        {!showGptSearch &&
+          Header_list.map((item) => (
+            <button key={item} className="m-2 font-medium">
+              {item}
+            </button>
+          ))}
       </div>
       <div className="flex ">
         {showGptSearch && (
           <select
-            className=" p-2 bg-gray-900 text-white rounded-lg"
+            className="p-2 bg-gray-800 text-white rounded-lg"
             onChange={handleLanguageChange}
           >
             {Supported_Languages.map((lang) => (

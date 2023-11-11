@@ -63,9 +63,10 @@ const MovieList = ({ title, movies }) => {
         slidesToSlide={4}
         swipeable
       >
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} data={movie} />
-        ))}
+        {movies.map(
+          (movie) =>
+            movie.poster_path && <MovieCard key={movie.id} data={movie} />
+        )}
       </Carousel>
     </div>
   );
