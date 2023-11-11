@@ -3,10 +3,11 @@ import { MovieCard } from "./MovieCard";
 import Slider from "react-slick";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Shimmer from "./Shimmer";
 
 const MovieList = ({ title, movies }) => {
   // console.log(title + " " + movies);
-
+  if (!movies) return <Shimmer />;
   return (
     <div className="mb-8">
       <h1 className="text-2xl pt-4 pb-2 font-medium">{title}</h1>
