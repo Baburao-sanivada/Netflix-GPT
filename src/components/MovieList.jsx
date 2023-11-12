@@ -9,12 +9,12 @@ const MovieList = ({ title, movies }) => {
   // console.log(title + " " + movies);
   if (!movies) return <Shimmer />;
   return (
-    <div className="mb-8">
+    <div className="mb-8 min-w-full">
       <h1 className="text-2xl pt-4 pb-2 font-medium">{title}</h1>
       <Carousel
         additionalTransfrom={0}
         arrows
-        autoPlaySpeed={3000}
+        autoPlaySpeed={2000}
         centerMode={false}
         className=""
         containerClass="container"
@@ -41,7 +41,7 @@ const MovieList = ({ title, movies }) => {
           mobile: {
             breakpoint: {
               max: 464,
-              min: 0,
+              min: 3,
             },
             items: 1,
             partialVisibilityGutter: 30,
@@ -51,7 +51,7 @@ const MovieList = ({ title, movies }) => {
               max: 1024,
               min: 464,
             },
-            items: 2,
+            items: 5,
             partialVisibilityGutter: 30,
           },
         }}

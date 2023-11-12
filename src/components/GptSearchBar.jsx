@@ -33,7 +33,7 @@ const GptSearchBar = () => {
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });
-    console.log(GptResult?.choices[0]?.message?.content);
+    // console.log(GptResult?.choices[0]?.message?.content);
     // ChatGpt api is not working so using Temporary movie list
     const GptmovieList = GptResult?.choices[0]?.message?.content.split(",");
 
@@ -50,7 +50,7 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className="pt-[15%] flex justify-center mx-auto bg-black bg-opacity-50 min-h-full pb-[30%]">
+    <div className="pt-[15%] flex justify-center mx-auto bg-black bg-opacity-40 min-h-full pb-[30%]">
       <form
         className="bg-black w-5/12 grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
