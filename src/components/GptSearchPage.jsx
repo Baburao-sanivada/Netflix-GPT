@@ -11,9 +11,11 @@ const GptSearchPage = () => {
   return (
     <div className="">
       {/* Backgorund Image */}
-      <div className="fixed -z-10">
-        <img className="" src={loginpageBgImage} alt="BackGorund Image"></img>
-      </div>
+      <img
+        className="fixed -z-10 h-[800px] object-cover"
+        src={loginpageBgImage}
+        alt="BackGorund Image"
+      ></img>
       {!showSuggestions && <GptSearchBar />}
       {showSuggestions && <GptMovieSuggestions />}
     </div>

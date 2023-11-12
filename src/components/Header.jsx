@@ -81,7 +81,7 @@ const Header = () => {
       <div className="flex ">
         {showGptSearch && (
           <select
-            className="p-2 bg-gray-800 text-white rounded-lg"
+            className="p-1 md:p-2 bg-gray-800 text-white rounded-lg mr-4 md:mr-0"
             onChange={handleLanguageChange}
           >
             {Supported_Languages.map((lang) => (
@@ -92,7 +92,9 @@ const Header = () => {
           </select>
         )}
         <button
-          className="bg-white text-black mx-4 px-3 py-1 my-1 rounded-sm"
+          className={`bg-white text-black mx-4 px-3 py-1 my-1 rounded-sm ${
+            showGptSearch ? "hidden md:block" : ""
+          }`}
           onClick={handleGptSearchClick}
         >
           {!showGptSearch ? "GPT Search" : "HomePage"}
@@ -101,8 +103,12 @@ const Header = () => {
           onClick={signoutHandler}
           className="text-white cursor-pointer flex items-center"
         >
-          <img src={profileImage} alt="image" className="rounded-sm" />
-          <span className="mx-2 font-medium">SignOut</span>
+          <img
+            src={profileImage}
+            alt="image"
+            className="rounded-sm w-5 md:w-8"
+          />
+          <span className="mx-1 md:mx-2 text-sm font-medium">SignOut</span>
         </button>
       </div>
     </div>

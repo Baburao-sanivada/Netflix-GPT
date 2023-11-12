@@ -2,7 +2,7 @@ import React from "react";
 
 const Shimmer = () => {
   return (
-    <div className="h-full w-full px-5">
+    <div className="h-full w-full px-5 overflow-hidden">
       <div className="animate-pulse w-52 h-5 bg-slate-600 m-1 flex-1 mt-20 mb-5"></div>
       <div className="animate-pulse flex">
         <div className=" px-10 py-5 bg-slate-600 h-52 m-1 flex-1 rounded xs:h-48"></div>
