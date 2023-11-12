@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MovieList from "./MovieList";
 import { AiOutlineClose } from "react-icons/ai";
-import { toggleShowSuggestions } from "../utils/gptSlice";
+import { addGptMoviesData, toggleShowSuggestions } from "../utils/gptSlice";
 import Shimmer from "./Shimmer";
 
 const GptMovieSuggestions = () => {
@@ -11,6 +11,12 @@ const GptMovieSuggestions = () => {
 
   const handleCloseSuggestions = () => {
     dispatch(toggleShowSuggestions(false));
+    dispatch(
+      addGptMoviesData({
+        movieNames: null,
+        moviesInfo: null,
+      })
+    );
   };
   return (
     <div className="w-full p-4 px-8  bg-black text-white bg-opacity-90 absolute top-14">

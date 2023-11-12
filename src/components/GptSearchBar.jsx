@@ -8,7 +8,7 @@ import { addGptMoviesData, toggleShowSuggestions } from "../utils/gptSlice";
 const GptSearchBar = () => {
   const dispatch = useDispatch();
   const lang_selected = useSelector((Store) => Store.language.lang);
-  const searchText = useRef();
+  const searchText = useRef("");
 
   const getMovieDetails = async (movieName) => {
     const fetchData = await fetch(
@@ -22,20 +22,20 @@ const GptSearchBar = () => {
     return jsonData?.results;
   };
 
-  const gptQuery =
-    "Act like a movie Recommendation System and suggest movies name with query :" +
-    searchText?.current?.value +
-    ". Give only 5 movies names ',' comma seperated as show in the example ahead . Example : MovieName1,MovieName2,MovieName3,MovieName4,MovieName5";
   const handleSearchClick = async () => {
     dispatch(toggleShowSuggestions(true));
-    // const GptResult = await openai.chat.completions.create({
-    //   messages: [{ role: "user", content: "Say this is a test" }],
-    //   model: "gpt-3.5-turbo",
-    // });
-    // console.log(GptResult);
-    console.log(searchText.current.value);
+    const gptQuery =
+      "Act like a movie Recommendation System and suggest movies name with query :" +
+      searchText?.current?.value +
+      ". Give only 5 movies names ',' comma seperated as show in the example ahead . Example : MovieName1,MovieName2,MovieName3,MovieName4,MovieName5";
+
+    const GptResult = await openai.chat.completions.create({
+      messages: [{ role: "user", content: gptQuery }],
+      model: "gpt-3.5-turbo",
+    });
+    console.log(GptResult?.choices[0]?.message?.content);
     // ChatGpt api is not working so using Temporary movie list
-    const GptmovieList = ["Salaar", "MAD", "Animal", "Arjun Reddy", "premam"];
+    const GptmovieList = GptResult?.choices[0]?.message?.content.split(",");
 
     const promiseArray = GptmovieList.map((movie) => getMovieDetails(movie));
     const gptMovieDetails = await Promise.all(promiseArray);

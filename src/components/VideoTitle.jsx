@@ -4,9 +4,9 @@ import { BsFillPlayFill } from "react-icons/bs";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="w-full aspect-video pt-[18%] pl-24 absolute text-white">
+    <div className="w-full aspect-video pt-[18%] pl-20 absolute text-white">
       <h1 className="font-bold text-4xl my-4">{title}</h1>
-      <p className="w-2/5 text-md">{overview}</p>
+      <p className="w-2/5 text-md ">{overview}</p>
       <div className="flex my-4">
         <button className="bg-white text-black pr-8 pl-6 rounded-md flex items-center">
           <BsFillPlayFill className="text-4xl mx-1" />
