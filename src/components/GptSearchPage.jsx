@@ -9,7 +9,7 @@ const GptSearchPage = () => {
   const dispatch = useDispatch();
   const showSuggestions = useSelector((store) => store.gpt.showSuggestions);
   return (
-    <div>
+    <div className="">
       {/* Backgorund Image */}
       <div className="fixed -z-10">
         <img className="" src={loginpageBgImage} alt="BackGorund Image"></img>

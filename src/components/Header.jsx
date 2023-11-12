@@ -51,6 +51,7 @@ const Header = () => {
   const handleGptSearchClick = () => {
     dispatch(togglegpt());
     dispatch(addGptMoviesData({ movieNames: null, moviesInfo: null }));
+    dispatch(changeLanguage("en"));
   };
 
   const handleLanguageChange = (e) => {
