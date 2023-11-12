@@ -41,9 +41,9 @@ const MovieList = ({ title, movies }) => {
           mobile: {
             breakpoint: {
               max: 464,
-              min: 3,
+              min: 0,
             },
-            items: 1,
+            items: 3,
             partialVisibilityGutter: 30,
           },
           tablet: {
@@ -51,7 +51,7 @@ const MovieList = ({ title, movies }) => {
               max: 1024,
               min: 464,
             },
-            items: 5,
+            items: 3,
             partialVisibilityGutter: 30,
           },
         }}
@@ -61,7 +61,7 @@ const MovieList = ({ title, movies }) => {
         shouldResetAutoplay
         showDots={false}
         sliderClass=""
-        slidesToSlide={4}
+        slidesToSlide={2}
         swipeable
       >
         {movies.map(

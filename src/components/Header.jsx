@@ -70,7 +70,10 @@ const Header = () => {
         </button>
         {!showGptSearch &&
           Header_list.map((item) => (
-            <button key={item} className="m-2 font-medium">
+            <button
+              key={item}
+              className="m-2 font-medium hidden lg:inline-block"
+            >
               {item}
             </button>
           ))}
