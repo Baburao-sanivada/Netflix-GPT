@@ -10,7 +10,7 @@ const VideoTitle = ({ title, overview }) => {
       </h1>
       <p className="w-2/5 text-md hidden lg:block">{overview}</p>
       <div className="flex my-2 md:my-4 ">
-        <button className="bg-white text-black pl-3 pr-4 md:pr-8 md:pl-6 rounded-md flex items-center">
+        <button className="bg-white text-black pl-3 pr-4 md:pr-8 md:pl-6 rounded-md flex items-center hover:bg-gray-200">
           <BsFillPlayFill className="text-xl md:text-4xl md:mx-1" />
           <span className="font-semibold text-sm md:text-lg">Play</span>
         </button>

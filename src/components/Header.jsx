@@ -72,7 +72,7 @@ const Header = () => {
           Header_list.map((item) => (
             <button
               key={item}
-              className="m-2 font-medium hidden lg:inline-block"
+              className="m-2 font-medium hidden lg:inline-block hover:text-gray-400"
             >
               {item}
             </button>
@@ -81,7 +81,7 @@ const Header = () => {
       <div className="flex ">
         {showGptSearch && (
           <select
-            className="p-1 md:p-2 bg-gray-800 text-white rounded-lg mr-4 md:mr-0"
+            className="p-1 md:p-2 bg-gray-800 text-white rounded-lg mr-4 md:mr-0 "
             onChange={handleLanguageChange}
           >
             {Supported_Languages.map((lang) => (
@@ -92,7 +92,7 @@ const Header = () => {
           </select>
         )}
         <button
-          className={`bg-white text-black mx-4 px-2 text-sm md:text-base md:px-3 py-1 my-1 rounded-sm md:rounded-md ${
+          className={`bg-white text-black mx-4 px-2 text-sm md:text-base md:px-3 py-1 my-1 rounded-sm md:rounded-md hover:bg-gray-200 ${
             showGptSearch ? "hidden md:block" : ""
           }`}
           onClick={handleGptSearchClick}
