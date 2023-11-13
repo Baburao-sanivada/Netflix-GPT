@@ -9,6 +9,7 @@ import { addGptMoviesData, setGpt, togglegpt } from "../utils/gptSlice";
 import { Header_list, Supported_Languages } from "../utils/constants";
 import { changeLanguage } from "../utils/langSlice";
 import profileImage from "../utils/Images/netflixProfile.png";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -16,7 +17,9 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
-
+  const data = useSelector((store) => store.user.user);
+  const displayName = data?.displayName;
+  // console.log(userName);
   useEffect(() => {
     // Auth Listener should be called only once so placed in useEffect.
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -78,7 +81,7 @@ const Header = () => {
             </button>
           ))}
       </div>
-      <div className="flex ">
+      <div className="flex items-center ">
         {showGptSearch && (
           <select
             className="p-1 md:p-2 bg-gray-800 text-white rounded-lg mr-4 md:mr-0 "
@@ -92,24 +95,32 @@ const Header = () => {
           </select>
         )}
         <button
-          className={`bg-white text-black mx-4 px-2 text-sm md:text-base md:px-3 py-1 my-1 rounded-sm md:rounded-md hover:bg-gray-200 ${
+          className={`bg-red-700 text-white mx-4 px-2 text-sm md:text-base md:px-4 py-1 my-1 rounded-sm md:rounded-md hover:bg-red-500 ${
             showGptSearch ? "hidden md:block" : ""
           }`}
           onClick={handleGptSearchClick}
         >
-          {!showGptSearch ? "GPT Search" : "HomePage"}
+          {!showGptSearch ? (
+            <div className="flex items-center">
+              <AiOutlineSearch className="text-xl mr-2" />
+              <span>GPT Search</span>
+            </div>
+          ) : (
+            "HomePage"
+          )}
         </button>
         <button
           onClick={signoutHandler}
-          className="text-white cursor-pointer flex items-center"
+          className="text-white cursor-pointer mx-1 md:mx-2 text-sm font-medium"
         >
-          <img
-            src={profileImage}
-            alt="image"
-            className="rounded-sm w-5 md:w-8"
-          />
-          <span className="mx-1 md:mx-2 text-sm font-medium">SignOut</span>
+          SignOut
         </button>
+        <img
+          src={profileImage}
+          alt="image"
+          className="rounded-sm w-5 md:w-7 ml-2"
+        />
+        <span className="text-white font-semibold px-1">{displayName}</span>
       </div>
     </div>
   );

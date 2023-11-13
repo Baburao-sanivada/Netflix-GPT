@@ -36,14 +36,14 @@ const LoginPage = () => {
     // Setting Initial Value to Null to avoid same error message when resubmitted the data
     setErrorMessage(null);
 
-    console.log(email?.current?.value);
-    console.log(password?.current?.value);
+    // console.log(email?.current?.value);
+    // console.log(password?.current?.value);
 
     if (!validateEmail(email?.current?.value)) {
       setErrorMessage("Invalid Email ID");
     } else if (!isSignInForm && !validatePassword(password?.current?.value)) {
       setErrorMessage(
-        "Invalid Password. Password must contain a special character,Capital letter,Small letter"
+        "Invalid Password. Password must contain a special character,Capital letter,Small letter and Must have atleast 8 characters"
       );
     } else {
       // No Errors
@@ -140,7 +140,7 @@ const LoginPage = () => {
 
       {/* Backgorund Image */}
       <img
-        className="h-[800px] object-cover"
+        className="h-[900px] object-cover"
         src={loginpageBgImage}
         alt="BackGorund Image"
       ></img>
@@ -157,20 +157,20 @@ const LoginPage = () => {
           <input
             ref={username}
             type="text"
-            className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md"
+            className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md text-white"
             placeholder="UserName"
           />
         )}
         <input
           ref={email}
           type="text"
-          className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md"
+          className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md text-white"
           placeholder="Email"
         />
         <input
           ref={password}
           type="password"
-          className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md"
+          className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md text-white"
           placeholder="Password"
         />
         {/* Error Message */}

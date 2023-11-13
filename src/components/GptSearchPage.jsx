@@ -12,7 +12,7 @@ const GptSearchPage = () => {
     <div className="">
       {/* Backgorund Image */}
       <img
-        className="fixed -z-10 h-[800px] object-cover"
+        className="h-[900px] object-cover"
         src={loginpageBgImage}
         alt="BackGorund Image"
       ></img>
