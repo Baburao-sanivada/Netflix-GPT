@@ -134,7 +134,7 @@ const LoginPage = () => {
   return (
     <div>
       {/* Logo */}
-      <div className="absolute w-44 bg-gradient-to-b from-black z-20">
+      <div className="absolute w-36 md:w-44 bg-gradient-to-b from-black z-20">
         <img src={netflixLogo} alt="NetflixLogo" />
       </div>
 

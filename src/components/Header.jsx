@@ -92,7 +92,7 @@ const Header = () => {
           </select>
         )}
         <button
-          className={`bg-white text-black mx-4 px-3 py-1 my-1 rounded-sm ${
+          className={`bg-white text-black mx-4 px-2 text-sm md:text-base md:px-3 py-1 my-1 rounded-sm md:rounded-md ${
             showGptSearch ? "hidden md:block" : ""
           }`}
           onClick={handleGptSearchClick}
