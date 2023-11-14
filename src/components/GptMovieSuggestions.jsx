@@ -19,18 +19,24 @@ const GptMovieSuggestions = () => {
     );
   };
   return (
-    <div className="w-full p-4 px-8  bg-black text-white bg-opacity-90 absolute top-14">
-      <span
-        onClick={handleCloseSuggestions}
-        className="cursor-pointer absolute right-4 top-4"
-      >
-        <AiOutlineClose className="text-2xl " />
-      </span>
-      {!gptMovieNames && <Shimmer />}
-      {gptMovieNames &&
-        gptMovieNames.map((movie, index) => (
-          <MovieList key={movie} title={movie} movies={gptMoviesInfo[index]} />
-        ))}
+    <div className="w-full p-4 px-8  bg-black text-white absolute top-14">
+      <div>
+        <span
+          onClick={handleCloseSuggestions}
+          className="cursor-pointer absolute right-4 top-4"
+        >
+          <AiOutlineClose className="text-2xl " />
+        </span>
+        {!gptMovieNames && <Shimmer />}
+        {gptMovieNames &&
+          gptMovieNames.map((movie, index) => (
+            <MovieList
+              key={movie}
+              title={movie}
+              movies={gptMoviesInfo[index]}
+            />
+          ))}
+      </div>
     </div>
   );
 };

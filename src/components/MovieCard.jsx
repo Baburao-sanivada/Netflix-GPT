@@ -7,7 +7,7 @@ export const MovieCard = ({ data }) => {
   return (
     <div>
       <img
-        className="w-[130px] lg:w-[160px] h-52 rounded-md hover:transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
+        className="max-w-none w-[130px] lg:w-[160px] h-52 rounded-md hover:transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer mr-4"
         alt="poster"
         src={img_cdn_url + data.poster_path}
       />

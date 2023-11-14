@@ -1,74 +1,77 @@
 import React from "react";
 import { MovieCard } from "./MovieCard";
 import Slider from "react-slick";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import Shimmer from "./Shimmer";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const MovieList = ({ title, movies }) => {
-  // console.log(title + " " + movies);
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 10,
+    slidesToScroll: 10,
+    initialSlide: 2,
+    arrows: false,
+    margin: 0,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 7,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 6,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 680,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+    ],
+  };
   if (!movies) return <Shimmer />;
   return (
-    <div className="mb-8 min-w-full">
+    <div className="mb-8">
       <h1 className="text-2xl pt-4 pb-2 font-medium">{title}</h1>
-      <Carousel
-        additionalTransfrom={0}
-        arrows
-        autoPlaySpeed={2000}
-        centerMode={false}
-        className=""
-        containerClass="container"
-        dotListClass=""
-        draggable
-        focusOnSelect={false}
-        infinite={false}
-        itemClass=""
-        keyBoardControl
-        minimumTouchDrag={80}
-        pauseOnHover
-        renderArrowsWhenDisabled={false}
-        renderButtonGroupOutside={false}
-        renderDotsOutside={false}
-        responsive={{
-          desktop: {
-            breakpoint: {
-              max: 3000,
-              min: 1024,
-            },
-            items: 7,
-            partialVisibilityGutter: 40,
-          },
-          mobile: {
-            breakpoint: {
-              max: 464,
-              min: 0,
-            },
-            items: 3,
-            partialVisibilityGutter: 30,
-          },
-          tablet: {
-            breakpoint: {
-              max: 1024,
-              min: 464,
-            },
-            items: 3,
-            partialVisibilityGutter: 30,
-          },
-        }}
-        rewind={false}
-        rewindWithAnimation={false}
-        rtl={false}
-        shouldResetAutoplay
-        showDots={false}
-        sliderClass=""
-        slidesToSlide={2}
-        swipeable
-      >
+      <Slider {...settings} style={{ margin: "0 -15px" }}>
         {movies.map(
           (movie) =>
-            movie.poster_path && <MovieCard key={movie.id} data={movie} />
+            movie.poster_path && (
+              <MovieCard key={movie.id} data={movie} className="ml-0" />
+            )
         )}
-      </Carousel>
+      </Slider>
     </div>
   );
 };
