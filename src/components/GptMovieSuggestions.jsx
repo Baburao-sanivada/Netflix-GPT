@@ -1,10 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import MovieList from "./MovieList";
 import { AiOutlineClose } from "react-icons/ai";
 import { addGptMoviesData, toggleShowSuggestions } from "../utils/gptSlice";
 import Shimmer from "./Shimmer";
-import MovieSuggestionsMOvieList from "./MovieSuggestionsMOvieList";
+import MovieSuggestionsMovieList from "./MovieSuggestionsMOvieList";
 
 const GptMovieSuggestions = () => {
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ const GptMovieSuggestions = () => {
         {!gptMovieNames && <Shimmer />}
         {gptMovieNames &&
           gptMovieNames.map((movie, index) => (
-            <MovieSuggestionsMOvieList
+            <MovieSuggestionsMovieList
               key={movie}
               title={movie}
               movies={gptMoviesInfo[index]}
