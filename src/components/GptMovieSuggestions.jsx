@@ -29,6 +29,7 @@ const GptMovieSuggestions = () => {
         </span>
         {!gptMovieNames && <Shimmer />}
         {gptMovieNames &&
+          // Should work on gpt movie suggesstions
           gptMovieNames.map((movie, index) => (
             <MovieSuggestionsMovieList
               key={movie}
