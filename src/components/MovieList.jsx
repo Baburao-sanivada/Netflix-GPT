@@ -64,7 +64,7 @@ const MovieList = ({ title, movies }) => {
   return (
     <div className="mb-8">
       <h1 className="text-2xl pt-4 pb-2 font-medium">{title}</h1>
-      <Slider {...settings} className="w-full">
+      <Slider {...settings} className="w-full group">
         {movies.map(
           (movie) =>
             movie.poster_path && (
