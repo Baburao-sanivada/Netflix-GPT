@@ -19,7 +19,7 @@ const GptMovieSuggestions = () => {
     );
   };
   return (
-    <div className="w-full p-4 px-8  bg-black text-white absolute top-14">
+    <div className="w-full p-4 px-8  bg-black text-white absolute top-10 md:top-14">
       <div>
         <span
           onClick={handleCloseSuggestions}

@@ -23,6 +23,16 @@ const Shimmer = () => {
         <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48 hidden md:block"></div>
         <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48 hidden md:block"></div>
       </div>
+      <div className="animate-pulse w-64 h-5 bg-slate-600 m-1 flex-1 mt-20 mb-5"></div>
+      <div className="animate-pulse flex">
+        <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48"></div>
+        <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48"></div>
+        <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48"></div>
+        <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48 hidden md:block"></div>
+        <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48 hidden md:block"></div>
+        <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48 hidden md:block"></div>
+        <div className=" px-10 py-5 bg-slate-600 h-52  m-1 flex-1 rounded xs:h-48 hidden md:block"></div>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { MovieCard } from "./MovieCard";
 
 const MovieSuggestionsMOvieList = ({ title, movies }) => {
-  if (movies.length > 5) movies = movies.slice(0, 4);
+  if (movies.length > 2) movies = movies.slice(0, 2);
   return (
     <div className="mb-8">
       <h1 className="text-2xl pt-4 pb-2 font-medium">{title}</h1>

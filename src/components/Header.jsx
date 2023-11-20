@@ -113,7 +113,7 @@ const Header = () => {
           {!showGptSearch ? (
             <div className="flex items-center">
               <AiOutlineSearch className="text-sm md:text-xl mr-1 md:mr-2" />
-              <span className="text-xs">GPT Search</span>
+              <span className="text-xs md:text-base">GPT Search</span>
             </div>
           ) : (
             "HomePage"
@@ -121,7 +121,7 @@ const Header = () => {
         </button>
         <button
           onClick={signoutHandler}
-          className="text-white cursor-pointer mx-1 md:mx-2 text-xs md:text-sm font-medium"
+          className="text-white cursor-pointer mx-1 md:mx-2 text-sm md:text-md font-semibold md:font-medium"
         >
           SignOut
         </button>
@@ -130,8 +130,8 @@ const Header = () => {
           alt="image"
           className="rounded-sm w-5 md:w-7 ml-2"
         />
-        <span className="text-white font-semibold px-1 text-sm md:text-md">
-          {displayName}
+        <span className="text-white font-semibold px-1 text-sm md:text-lg">
+          {"Hi," + displayName}
         </span>
       </div>
     </div>
