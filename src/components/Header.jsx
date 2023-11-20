@@ -5,7 +5,12 @@ import { auth } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utils/userSlice";
-import { addGptMoviesData, setGpt, togglegpt } from "../utils/gptSlice";
+import {
+  addGptMoviesData,
+  setGpt,
+  toggleShowSuggestions,
+  togglegpt,
+} from "../utils/gptSlice";
 import { Header_list, Supported_Languages } from "../utils/constants";
 import { changeLanguage } from "../utils/langSlice";
 import profileImage from "../utils/Images/netflixProfile.png";
@@ -63,13 +68,18 @@ const Header = () => {
 
   const handleHomeClick = () => {
     dispatch(setGpt(false));
+    dispatch(toggleShowSuggestions(false));
   };
 
   return (
-    <div className="fixed flex justify-between bg-[#141414] w-full z-50 px-6 items-center py-1">
+    <div className="fixed flex justify-between bg-[#141414] w-full z-50 px-2 md:px-6 items-center py-1">
       <div className="flex text-white items-center">
         <button onClick={handleHomeClick}>
-          <img src={netflixLogo} alt="NetflixLogo" className="w-32  mr-2" />
+          <img
+            src={netflixLogo}
+            alt="NetflixLogo"
+            className="w-24 md:w-32  mr-2"
+          />
         </button>
         {!showGptSearch &&
           Header_list.map((item) => (
@@ -95,15 +105,15 @@ const Header = () => {
           </select>
         )}
         <button
-          className={`bg-red-700 text-white mx-4 px-2 text-sm md:text-base md:px-4 py-1 my-1 rounded-sm md:rounded-md hover:bg-red-500 ${
+          className={`bg-red-700 text-white mx-2 md:mx-4 px-2  md:px-4 py-1 my-1 rounded-sm md:rounded-md hover:bg-red-500 ${
             showGptSearch ? "hidden md:block" : ""
           }`}
           onClick={handleGptSearchClick}
         >
           {!showGptSearch ? (
             <div className="flex items-center">
-              <AiOutlineSearch className="text-xl mr-2" />
-              <span>GPT Search</span>
+              <AiOutlineSearch className="text-sm md:text-xl mr-1 md:mr-2" />
+              <span className="text-xs">GPT Search</span>
             </div>
           ) : (
             "HomePage"
@@ -111,7 +121,7 @@ const Header = () => {
         </button>
         <button
           onClick={signoutHandler}
-          className="text-white cursor-pointer mx-1 md:mx-2 text-sm font-medium"
+          className="text-white cursor-pointer mx-1 md:mx-2 text-xs md:text-sm font-medium"
         >
           SignOut
         </button>
@@ -120,7 +130,9 @@ const Header = () => {
           alt="image"
           className="rounded-sm w-5 md:w-7 ml-2"
         />
-        <span className="text-white font-semibold px-1">{displayName}</span>
+        <span className="text-white font-semibold px-1 text-sm md:text-md">
+          {displayName}
+        </span>
       </div>
     </div>
   );
