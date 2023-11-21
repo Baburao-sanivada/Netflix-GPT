@@ -131,7 +131,7 @@ const Header = () => {
           className="rounded-sm w-5 md:w-7 ml-2"
         />
         <span className="text-white font-semibold px-1 text-sm md:text-lg">
-          {"Hi," + displayName}
+          {"Hi," + displayName ? displayName : ""}
         </span>
       </div>
     </div>
