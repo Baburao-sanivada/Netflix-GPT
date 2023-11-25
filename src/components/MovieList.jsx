@@ -47,7 +47,7 @@ const MovieList = ({ title, movies }) => {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
         },
       },
     ],
