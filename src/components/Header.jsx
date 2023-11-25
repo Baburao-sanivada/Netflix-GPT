@@ -121,7 +121,7 @@ const Header = () => {
         </button>
         <button
           onClick={signoutHandler}
-          className="text-white cursor-pointer mx-1 md:mx-2 text-sm md:text-md font-semibold md:font-medium"
+          className="text-white cursor-pointer md:mx-2 text-sm md:text-md font-semibold md:font-medium"
         >
           SignOut
         </button>
