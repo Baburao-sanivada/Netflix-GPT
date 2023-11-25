@@ -11,7 +11,7 @@ const MovieList = ({ title, movies }) => {
     infinite: false,
     speed: 500,
     slidesToShow: 8,
-    slidesToScroll: 8,
+    slidesToScroll: 7,
     initialSlide: 2,
     arrows: true,
     responsive: [
