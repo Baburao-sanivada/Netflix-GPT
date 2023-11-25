@@ -10,8 +10,8 @@ const MovieList = ({ title, movies }) => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 10,
-    slidesToScroll: 10,
+    slidesToShow: 8,
+    slidesToScroll: 8,
     initialSlide: 2,
     arrows: false,
     responsive: [
