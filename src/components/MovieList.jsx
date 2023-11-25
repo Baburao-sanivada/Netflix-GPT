@@ -13,7 +13,7 @@ const MovieList = ({ title, movies }) => {
     slidesToShow: 8,
     slidesToScroll: 7,
     initialSlide: 2,
-    arrows: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1400,
