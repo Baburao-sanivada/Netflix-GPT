@@ -158,7 +158,7 @@ const LoginPage = () => {
             ref={username}
             type="text"
             className="px-4 py-3 mb-8 bg-[#333] text-[#8c8c8c] w-full rounded-md text-white"
-            placeholder="UserName"
+            placeholder="Username"
           />
         )}
         <input
