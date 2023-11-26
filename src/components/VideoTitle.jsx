@@ -14,7 +14,7 @@ const VideoTitle = ({ title, overview }) => {
           <BsFillPlayFill className="text-lg md:text-4xl md:mx-1" />
           <span className="font-semibold text-sm md:text-lg">Play</span>
         </button>
-        <button className="bg-gray-700 ml-2 md:ml-4 py-1 md:py-2 md:px-8 px-3 rounded-md flex items-center">
+        <button className="bg-gray-700 ml-2 md:ml-4 py-1 md:py-2 md:px-8 px-3 rounded-md flex items-center hover:bg-gray-600">
           <AiOutlineInfoCircle className="text-lg md:text-2xl md:mx-1 text-white" />{" "}
           <span className="font-normal md:font-bold mx-1 text-sm md:text-base">
             More Info
