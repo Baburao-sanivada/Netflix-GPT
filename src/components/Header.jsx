@@ -130,8 +130,11 @@ const Header = () => {
           alt="image"
           className="rounded-sm w-5 md:w-7 ml-2"
         />
-        <span className="text-white font-semibold px-1 text-xs md:text-lg">
-          Hi, {displayName ? displayName : ""}
+        <span className="text-white font-semibold px-1 text-xs md:text-lg flex">
+          Hi,{" "}
+          <span className="hidden md:block">
+            {displayName ? displayName : ""}
+          </span>
         </span>
       </div>
     </div>
